@@ -372,7 +372,7 @@ const paint=()=>document.documentElement.setAttribute("data-theme",dark?"dark":"
 $("#theme").onclick=()=>{dark=!dark;paint()};paint();
 
 /* ===== Database (Supabase) ===== */
-const CFG={url:"YOUR_SUPABASE_URL",key:"YOUR_SUPABASE_ANON_KEY",bucket:"work"};
+const CFG={url:"https://yqvdhjaoepekhwdhgqnu.supabase.co",key:"sb_publishable_M4H4sANy41d9nKvG0bIrCw_2yOqVulI",bucket:"work"};
 let sb=null;
 try{if(window.supabase&&/^https:\/\//.test(CFG.url))sb=supabase.createClient(CFG.url,CFG.key)}catch(e){}
 async function load(){
