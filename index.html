@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Afik’s Room | Websites and apps</title>
+<meta name="description" content="Afik’s Room: websites and web apps designed and built for businesses and creators.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFF4D6; --ink:#141414; --card:#FFFFFF; --y:#FFD84D; --p:#FF8FC0; --b:#7DB4FF; --g:#7EE2A8; --on:#141414; --ln:#141414; --sh:#141414;
+  color-scheme:light;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0B1220; --ink:#E8EEF8; --card:#121B2E; --on:#F1F5FB; --ln:#3F5280; --sh:#050912; --y:#2D4A8A; --p:#5B3F8C; --b:#1F5F8B; --g:#1F6B5C; color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#0B1220; --ink:#E8EEF8; --card:#121B2E; --on:#F1F5FB; --ln:#3F5280; --sh:#050912; --y:#2D4A8A; --p:#5B3F8C; --b:#1F5F8B; --g:#1F6B5C; color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-padding-top:6rem;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.1rem/1.6 "Space Grotesk",system-ui,sans-serif;transition:background .4s,color .4s;overflow-x:hidden}
+h1,h2,h3{font-family:"Archivo Black","Space Grotesk",sans-serif;font-weight:400;margin:0;line-height:1.02;letter-spacing:-.01em}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:4px solid var(--b);outline-offset:3px}
+.wrap{max-width:72rem;margin:0 auto;padding:0 1.4rem}
+/* nav */
+header.nav{position:sticky;top:0;z-index:15;background:var(--bg);border-bottom:3px solid var(--ln)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:4.4rem;flex-wrap:wrap;padding-top:.5rem;padding-bottom:.5rem}
+.logo{font-family:"Archivo Black",sans-serif;background:var(--y);color:var(--on);border:3px solid var(--ln);padding:.25rem .8rem;text-decoration:none;font-size:1.2rem;transform:rotate(-2deg);box-shadow:4px 4px 0 var(--sh);transition:transform .2s}
+.logo:hover{transform:rotate(2deg) scale(1.05)}
+.menu{display:flex;gap:.5rem;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.menu a{display:block;text-decoration:none;font-weight:700;border:3px solid transparent;border-radius:99px;padding:.25rem .9rem;transition:all .15s}
+.menu a:hover{border-color:var(--ln);background:var(--card)}
+.navr{display:flex;gap:.6rem;align-items:center}
+.btn{display:inline-block;background:var(--ink);color:var(--bg);font:700 1rem "Space Grotesk",sans-serif;text-decoration:none;border:3px solid var(--ln);border-radius:.9rem;padding:.7rem 1.4rem;cursor:pointer;box-shadow:5px 5px 0 var(--sh);transition:transform .12s,box-shadow .12s,translate .3s cubic-bezier(.16,1,.3,1)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--sh)}
+.btn:active{transform:translate(5px,5px);box-shadow:0 0 0 var(--sh)}
+.btn.y{background:var(--y);color:var(--on);box-shadow:5px 5px 0 var(--sh)}
+.btn.p{background:var(--p);color:var(--on)}
+.btn.w{background:var(--card);color:var(--ink)}
+.btn.sm{padding:.4rem 1rem;font-size:.92rem;box-shadow:3px 3px 0 var(--sh)}
+.tbtn{width:2.6rem;height:2.6rem;border-radius:50%;border:3px solid var(--ln);background:var(--card);color:var(--ink);cursor:pointer;font-size:1.2rem;box-shadow:3px 3px 0 var(--sh);transition:transform .3s}
+.tbtn:hover{transform:rotate(180deg)}
+/* hero */
+.hero{position:relative;padding:4.5rem 0 5rem;overflow:hidden}
+.hgrid{display:grid;grid-template-columns:1.25fr .75fr;gap:2.5rem;align-items:center}
+.hero h1{font-size:clamp(2.7rem,7.6vw,5.8rem)}
+.hl{display:inline-block;color:var(--on);border:3px solid var(--ln);padding:0 .25em;margin:.08em 0;box-shadow:6px 6px 0 var(--sh)}
+.hl.a{background:var(--y);transform:rotate(-1.5deg)}
+.hl.b{background:var(--p);transform:rotate(1.2deg)}
+.hl.c{background:var(--b);transform:rotate(-.8deg)}
+.w1{display:inline-block;opacity:0;transform:translateY(45%) scale(.92);animation:pop .9s cubic-bezier(.16,1,.3,1) forwards;animation-delay:calc(1.15s + var(--i)*110ms)}
+@keyframes pop{to{opacity:1;transform:none}}
+.hero .lead{font-size:1.3rem;max-width:34rem;margin:2rem 0 2rem;opacity:0;animation:pop .9s 2.1s cubic-bezier(.16,1,.3,1) forwards}
+.cta{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:pop .9s 2.3s cubic-bezier(.16,1,.3,1) forwards}
+.stack{position:relative;height:25rem}
+.st{position:absolute;border:3px solid var(--ln);box-shadow:6px 6px 0 var(--sh);padding:1rem 1.3rem;font-family:"Archivo Black",sans-serif;color:var(--on);font-size:1.5rem;animation:bob 5s ease-in-out infinite}
+.s1{background:var(--g);top:0;left:6%;transform:rotate(-6deg)}
+.s2{background:var(--b);top:7.5rem;right:0;transform:rotate(5deg);animation-delay:-1.5s}
+.s3{background:var(--p);top:15rem;left:0;transform:rotate(-3deg);animation-delay:-3s}
+.s4{background:var(--y);bottom:0;right:8%;transform:rotate(7deg);animation-delay:-4s;font-size:1.2rem}
+@keyframes bob{50%{translate:0 -14px}}
+.badge{position:absolute;right:-1.5rem;top:-1rem;width:7rem;height:7rem;animation:spin 14s linear infinite}
+@keyframes spin{to{rotate:360deg}}
+.badge svg{width:100%;height:100%}
+.badge text{font:700 8px "Space Grotesk",sans-serif;fill:var(--on);letter-spacing:1.4px}
+.badge circle.f{fill:var(--y);stroke:var(--ln);stroke-width:3}
+/* marquee */
+.mq{background:var(--y);color:var(--on);border-top:3px solid var(--ln);border-bottom:3px solid var(--ln);overflow:hidden;padding:.8rem 0;transform:rotate(-1deg);margin:0 -1rem}
+.mt{display:flex;gap:2rem;width:max-content;animation:mq 22s linear infinite;font-family:"Archivo Black",sans-serif;font-size:1.6rem;white-space:nowrap}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* sections */
+section{padding:5.5rem 0}
+.sh{margin-bottom:2.6rem}
+.sh h2{font-size:clamp(2.2rem,5.5vw,4rem);display:inline-block}
+.sh h2 span{background:var(--y);color:var(--on);padding:0 .2em;border:3px solid var(--ln);display:inline-block;transform:rotate(-1.5deg);box-shadow:5px 5px 0 var(--sh)}
+.sh p{margin-top:1.2rem;max-width:34rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1.6rem}
+.card{border:3px solid var(--ln);border-radius:1.1rem;box-shadow:7px 7px 0 var(--sh);padding:1.7rem;background:var(--card);color:var(--ink);transition:transform .25s cubic-bezier(.16,1,.3,1),translate .25s,box-shadow .25s}
+.card:hover{translate:-4px -4px;box-shadow:11px 11px 0 var(--sh)}
+.card.cp,.card.cb,.card.cg,.card.cy{color:var(--on)}
+.cp{background:var(--p)}.cb{background:var(--b)}.cg{background:var(--g)}.cy{background:var(--y)}
+.card h3{font-size:1.6rem;margin-bottom:.7rem}
+.card .big{font-family:"Archivo Black",sans-serif;font-size:2.6rem;display:block;margin-bottom:.4rem}
+.work{padding:0;overflow:hidden;text-decoration:none;display:flex;flex-direction:column}
+.thumb{aspect-ratio:16/10;display:grid;place-items:center;font-family:"Archivo Black",sans-serif;font-size:4.4rem;color:var(--on);border-bottom:3px solid var(--ln);overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.work:hover .thumb img{transform:scale(1.08) rotate(1deg)}
+.wb{padding:1.3rem 1.5rem 1.6rem}
+.wb span{display:inline-block;font-weight:700;font-size:.82rem;border:2px solid var(--ln);border-radius:99px;padding:.05rem .75rem;margin-bottom:.8rem;background:var(--y);color:var(--on)}
+.wb h3{font-size:1.5rem;margin-bottom:.4rem}
+.empty{grid-column:1/-1}
+.about{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center}
+.about p.big{font-family:"Archivo Black",sans-serif;font-size:clamp(1.6rem,3.6vw,2.5rem);line-height:1.15;margin-bottom:2rem}
+.chips{display:flex;flex-wrap:wrap;gap:.7rem}
+.chips span{border:3px solid var(--ln);border-radius:99px;padding:.3rem 1rem;font-weight:700;background:var(--card);box-shadow:3px 3px 0 var(--sh);transition:transform .15s}
+.chips span:nth-child(3n+1){background:var(--g);color:var(--on)}.chips span:nth-child(3n+2){background:var(--p);color:var(--on)}.chips span:nth-child(3n){background:var(--b);color:var(--on)}
+.chips span:hover{transform:translateY(-4px) rotate(-3deg)}
+.why ul{margin:0;padding:0;list-style:none}
+.why li{margin:.7rem 0;font-weight:500}
+.why li::before{content:"★";margin-right:.6rem}
+.cbox{display:grid;grid-template-columns:.9fr 1.1fr;gap:2.6rem;background:var(--y);color:var(--on);border:3px solid var(--ln);border-radius:1.6rem;box-shadow:10px 10px 0 var(--sh);padding:2.6rem}
+.cbox h2{font-size:clamp(2.2rem,5vw,3.6rem);margin-bottom:1rem}
+.links{display:flex;flex-direction:column;gap:.6rem;margin-top:1.6rem}
+.links a{font-weight:700;font-size:1.15rem;word-break:break-word;width:max-content;max-width:100%;border-bottom:3px solid var(--on);text-decoration:none}
+.links a:hover{background:var(--card)}
+label{display:block;font-weight:700;margin:0 0 .3rem}
+input,textarea{width:100%;font:inherit;color:#141414;background:#fff;border:3px solid #141414;border-radius:.8rem;padding:.7rem 1rem;margin-bottom:1rem;box-shadow:4px 4px 0 #141414;transition:transform .12s,box-shadow .12s}
+input:focus,textarea:focus{outline:none;transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--b)}
+textarea{resize:vertical;min-height:7rem}
+.cbox .btn{background:#141414;color:#fff;border-color:#141414;box-shadow:5px 5px 0 var(--p)}
+footer{border-top:3px solid var(--ln);padding:2rem 0 3rem;font-weight:500}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.js .rv{opacity:0;transform:translateY(48px);transition:opacity .9s,transform 1s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--d,0)*100ms)}
+.js .rv.in{opacity:1;transform:none}
+/* owner */
+#manage{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:20}
+#admin{position:fixed;top:0;right:0;bottom:0;width:min(26rem,100%);background:var(--bg);border-left:3px solid var(--ln);z-index:30;overflow-y:auto;padding:calc(1.2rem + env(safe-area-inset-top,0px)) 1.4rem calc(2rem + env(safe-area-inset-bottom,0px));animation:slide .35s cubic-bezier(.3,1.2,.5,1)}
+@keyframes slide{from{transform:translateX(100%)}}
+#admin h3{font-size:1.3rem;margin:1.6rem 0 .8rem}
+#admin input{box-shadow:3px 3px 0 var(--sh);border-color:var(--ln)}
+#admin .top{display:flex;justify-content:space-between;align-items:center}
+.arow{display:flex;justify-content:space-between;align-items:center;gap:.5rem;border-top:2px solid var(--ln);padding:.6rem 0}
+#msg{font-weight:700;min-height:1.5rem;margin:.8rem 0 0}
+#prog{position:fixed;top:0;left:0;height:6px;width:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--p),var(--y),var(--b),var(--g));z-index:40}
+.menu a.act{border-color:var(--ln);background:var(--y);color:var(--on)}
+@keyframes wig{25%{rotate:-2deg}75%{rotate:2deg}}
+.sh.in h2 span{animation:wig .8s .4s}
+@keyframes drop{from{translate:0 -40px;opacity:0}}
+.logo{animation:drop .8s cubic-bezier(.3,1.6,.5,1) both}
+.st{cursor:pointer;transition:scale .2s}
+.st:hover{scale:1.1}
+.st:active{scale:.92}
+.badge{cursor:pointer}
+.mq.r{background:var(--p);transform:rotate(1deg);margin-top:3rem}
+.mq.r .mt{animation-direction:reverse}
+.ic{width:3rem;height:3rem;margin-bottom:.8rem;stroke:var(--on);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;display:block}
+.card:hover .ic{animation:wig .6s}
+.cf{position:fixed;width:.7rem;height:.7rem;border:2px solid #141414;z-index:60;pointer-events:none}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+.hl,.btn{position:relative;overflow:hidden}
+.hl::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.5) 50%,transparent 60%);transform:translateX(-120%);animation:shine 5s 2.8s infinite}
+@keyframes shine{35%,100%{transform:translateX(120%)}}
+.btn::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg)}
+.btn:hover::after{left:130%;transition:left .7s}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(26rem circle at var(--mx,72%) var(--my,28%),color-mix(in srgb,var(--b) 38%,transparent),transparent 65%);pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:45;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+#intro{position:fixed;inset:0;z-index:100;background:var(--y);color:var(--on);display:grid;place-items:center;font-family:"Archivo Black",sans-serif;font-size:clamp(2.4rem,9vw,6rem);animation:curtain .9s 1.05s cubic-bezier(.76,0,.24,1) forwards}
+#intro span{display:block;animation:iin .9s cubic-bezier(.16,1,.3,1) both}
+@keyframes iin{from{opacity:0;transform:translateY(40px)}}
+@keyframes curtain{to{transform:translateY(-100%);visibility:hidden}}
+#cur{display:none}
+@media (hover:hover) and (pointer:fine){#cur{display:block;position:fixed;left:0;top:0;width:36px;height:36px;border:2px solid var(--ink);border-radius:50%;pointer-events:none;z-index:70;opacity:0;transition:opacity .3s,width .25s,height .25s,margin .25s,background .25s}#cur.on{opacity:.65}#cur.big{width:60px;height:60px;margin:-12px 0 0 -12px;background:color-mix(in srgb,var(--y) 35%,transparent)}}
+@media (max-width:820px){
+  html{scroll-padding-top:8.5rem}
+  .hgrid,.about,.cbox{grid-template-columns:1fr}
+  .stack{height:21rem}.s2{top:5.5rem}.s3{top:11rem}
+  .badge{display:none}
+  .menu{order:3;width:100%;justify-content:center}
+  .hero{padding:3rem 0 4rem}
+  section{padding:4rem 0}
+  .cbox{padding:1.6rem}
+}
+@media (prefers-reduced-motion:reduce){#intro,#cur{display:none!important}*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}.w1,.hero .lead,.cta,.js .rv{opacity:1!important;transform:none!important}}
+</style>
+</head>
+<body>
+<div id="intro" aria-hidden="true"><span>Afik’s Room</span></div>
+<div id="cur" aria-hidden="true"></div>
+<div id="prog"></div>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="#top">Afik’s Room</a>
+  <ul class="menu"><li><a href="#services">Services</a></li><li><a href="#work">Work</a></li><li><a href="#process">Process</a></li><li><a href="#about">About</a></li></ul>
+  <div class="navr"><button class="tbtn" id="theme" type="button" aria-label="Switch light and dark theme">◐</button><a class="btn y sm" href="#contact">Hire me</a></div>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap hgrid">
+  <div>
+    <h1 aria-label="Websites and apps, made in Afik’s Room"><span id="h1a"></span></h1>
+    <p class="lead">I design and build websites and web apps for businesses and creators. Fast, friendly and made to be used.</p>
+    <div class="cta"><a class="btn y" href="#contact">Start a project</a><a class="btn w" href="#work">See my work</a></div>
+  </div>
+  <div class="stack" aria-hidden="true">
+    <div class="badge"><svg viewBox="0 0 100 100"><defs><path id="cp" d="M50 50m-36 0a36 36 0 1 1 72 0a36 36 0 1 1-72 0"/></defs><circle class="f" cx="50" cy="50" r="47"/><text><textPath href="#cp">OPEN FOR WORK ✦ OPEN FOR WORK ✦</textPath></text></svg></div>
+    <div class="st s1">Websites</div><div class="st s2">Web apps</div><div class="st s3">Fast</div><div class="st s4">Made with care</div>
+  </div>
+</div></section>
+
+<div class="mq" aria-hidden="true"><div class="mt" id="mt"></div></div>
+
+<section id="services"><div class="wrap">
+  <div class="sh rv"><h2><span>Services</span></h2><p>Pick one or mix them. Every project starts with a short chat about what you need.</p></div>
+  <div class="grid">
+    <div class="card cp rv" style="--d:0"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></svg><h3>Websites</h3><p>Fast, good-looking sites for businesses, creators and events.</p></div>
+    <div class="card cb rv" style="--d:1"><svg class="ic" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg><h3>Web apps</h3><p>Dashboards, booking tools and custom apps built around how you work.</p></div>
+    <div class="card cg rv" style="--d:2"><svg class="ic" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.4 2.4-2.6-.6-.6-2.6z"/></svg><h3>Fixes and upgrades</h3><p>Bugs, slow pages or an old look. I clean it up and make it last.</p></div>
+  </div>
+</div></section>
+
+<section id="work" style="padding-top:2rem"><div class="wrap">
+  <div class="sh rv"><h2><span>My work</span></h2><p>A few recent projects. Click one to see it.</p></div>
+  <div class="grid" id="projects"></div>
+</div></section>
+
+<div class="mq r" aria-hidden="true"><div class="mt" id="mt2"></div></div>
+
+<section id="process"><div class="wrap">
+  <div class="sh rv"><h2><span>How it works</span></h2></div>
+  <div class="grid">
+    <div class="card cy rv" style="--d:0"><h3>1. Talk</h3><p>We chat about your goals, audience and budget.</p></div>
+    <div class="card cp rv" style="--d:1"><h3>2. Design</h3><p>You see the look before I build it.</p></div>
+    <div class="card cb rv" style="--d:2"><h3>3. Build</h3><p>I code it and test it on phones and computers.</p></div>
+    <div class="card cg rv" style="--d:3"><h3>4. Launch</h3><p>We go live, and I stay around for changes.</p></div>
+  </div>
+</div></section>
+
+<section id="about" style="padding-top:2rem"><div class="wrap about">
+  <div class="rv">
+    <p class="big">Hi, I’m Afik. I make websites and apps that load fast and are easy to use.</p>
+    <div class="chips"><span>HTML &amp; CSS</span><span>JavaScript</span><span>React</span><span>Python</span><span>APIs</span><span>GitHub</span></div>
+  </div>
+  <div class="card cy why rv" style="--d:2"><h3>Why work with me</h3><ul><li>One person from idea to launch</li><li>Clear prices before we start</li><li>Pages that work on every phone</li><li>Help after the site goes live</li></ul></div>
+</div></section>
+
+<section id="contact" style="padding-top:2rem"><div class="wrap">
+  <div class="cbox rv">
+    <div>
+      <h2>Let’s make something</h2>
+      <p>Tell me what you want to build, your timeline and your budget.</p>
+      <div class="links" id="links"></div>
+    </div>
+    <form id="cform">
+      <label for="cn">Your name</label><input id="cn" required autocomplete="name">
+      <label for="ce">Your email</label><input id="ce" type="email" required autocomplete="email">
+      <label for="cm">What do you need?</label><textarea id="cm" required></textarea>
+      <button class="btn" type="submit">Send message</button>
+      <p id="cnote" style="font-weight:700;margin-top:.9rem"></p>
+    </form>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr"></span> Afik’s Room</span><span>Websites and apps · <a href="#" id="olog">Owner login</a></span></div></footer>
+
+<button id="manage" class="btn y" hidden type="button">Manage site</button>
+<aside id="admin" hidden aria-label="Manage site">
+  <div class="top"><h3 style="margin:0">Manage site</h3><button class="btn w sm" id="close" type="button">Close</button></div>
+  <div id="auth"><h3>Owner login</h3>
+  <label for="le">Email</label><input id="le" type="email" autocomplete="username">
+  <label for="lp">Password</label><input id="lp" type="password" autocomplete="current-password">
+  <button class="btn y" id="login" type="button">Sign in</button></div>
+  <div id="tools" hidden>
+  <h3>Add a project</h3>
+  <label for="pt">Title</label><input id="pt">
+  <label for="pd">Short description</label><input id="pd">
+  <label for="pm">Type, e.g. Website</label><input id="pm">
+  <label for="pl">Link to the project (optional)</label><input id="pl" placeholder="https://">
+  <label for="pf">Picture (optional)</label><input id="pf" type="file" accept="image/*">
+  <button class="btn y" id="padd" type="button">Add project</button>
+  <h3>Your projects</h3><div id="alist"></div>
+  <h3>Contact details</h3>
+  <label for="ke">Email</label><input id="ke" type="email">
+  <label for="kw">WhatsApp number with country code</label><input id="kw">
+  <label for="kg">GitHub link</label><input id="kg">
+  <label for="kl">LinkedIn link</label><input id="kl">
+  <button class="btn p" id="pub" type="button">Save contact details</button>
+  <h3>Messages</h3><div id="mlist"></div>
+  <button class="btn w sm" id="logout" type="button" style="margin-top:1rem">Sign out</button></div>
+  <p id="msg" role="status"></p>
+</aside>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script type="application/json" id="state">{"contact":{"email":"","whatsapp":"","github":"","linkedin":""},"projects":[{"title":"Project one","desc":"One sentence on what it does and who it is for.","meta":"Website","link":"#","img":""},{"title":"Project two","desc":"One sentence on what it does and who it is for.","meta":"Web app","link":"#","img":""},{"title":"Project three","desc":"One sentence on what it does and who it is for.","meta":"API","link":"#","img":""}]}</script>
+<script>
+const $=s=>document.querySelector(s);
+document.documentElement.classList.add("js");
+let D;try{D=JSON.parse($("#state").textContent)}catch(e){D={contact:{},projects:[]}}
+D.contact=D.contact||{};D.projects=D.projects||[];
+$("#yr").textContent=new Date().getFullYear();
+
+/* hero headline: words pop in */
+const H=[["Websites","a"],["&","" ],["apps,",""],["made","b"],["in","" ],["Afik’s","c"],["Room.","c"]];
+let i=0;const h=$("#h1a");
+H.forEach(([w,c])=>{
+  const s=document.createElement("span");s.className="w1";s.setAttribute("aria-hidden","true");s.style.setProperty("--i",i++);
+  if(c){const k=document.createElement("span");k.className="hl "+c;k.textContent=w;s.appendChild(k)}else s.textContent=w;
+  h.appendChild(s);h.appendChild(document.createTextNode(" "));
+});
+/* marquee */
+const items=["Websites","Web apps","Fixes","Fast","Mobile-ready","Made with care"];
+const items2=["Say hello","Let’s talk","Start a project","Send a message"];
+for(let r=0;r<4;r++){items.forEach(t=>{const s=document.createElement("span");s.textContent=t+" ✦";$("#mt").appendChild(s)});items2.forEach(t=>{const s=document.createElement("span");s.textContent=t+" ✦";$("#mt2").appendChild(s)})}
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const t=e.target;t.classList.add("in");io.unobserve(t);setTimeout(()=>{t.classList.remove("rv","in");t.style.removeProperty("--d")},1600)}}),{threshold:.12});
+const watch=()=>document.querySelectorAll(".rv:not(.in)").forEach(e=>io.observe(e));
+const safe=u=>{u=(u||"").trim();if(!u)return"#";if(/^(https?:\/\/|\/|#|mailto:)/i.test(u))return u;if(/^[\w.-]+\.[a-z]{2,}/i.test(u))return"https://"+u;return"#"};
+function el(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+const cols=["var(--p)","var(--b)","var(--g)","var(--y)"];
+
+function render(){
+  const box=$("#projects");box.textContent="";
+  if(!D.projects.length)box.appendChild(el("p","empty","Projects will appear here soon."));
+  D.projects.forEach((p,i)=>{
+    const a=el("a","card work rv");a.href=safe(p.link);a.style.setProperty("--d",i%3);
+    if(/^https?:|^\/_blob\//.test(p.link||""))a.target="_blank",a.rel="noopener";
+    const th=el("div","thumb");th.style.background=cols[i%4];
+    if(p.img&&/^(\/_blob\/|https:)/.test(p.img)){const im=document.createElement("img");im.src=p.img;im.alt=p.title||"";im.loading="lazy";th.appendChild(im)}
+    else th.textContent=(p.title||"?").trim().charAt(0).toUpperCase();
+    const b=el("div","wb");if(p.meta)b.appendChild(el("span",0,p.meta));
+    b.append(el("h3",0,p.title||"Untitled"),el("p",0,p.desc||""));
+    a.append(th,b);box.appendChild(a);
+  });
+  const c=D.contact,L=$("#links");L.textContent="";
+  const add=(t,h)=>{const a=el("a",0,t);a.href=h;if(/^https/.test(h))a.target="_blank",a.rel="noopener";L.appendChild(a)};
+  add(c.email||"your@email.com","mailto:"+(c.email||"your@email.com"));
+  const w=(c.whatsapp||"").replace(/\D/g,"");if(w)add("WhatsApp","https://wa.me/"+w);
+  if(c.github)add("GitHub",safe(c.github));if(c.linkedin)add("LinkedIn",safe(c.linkedin));
+  watch();
+}
+render();watch();
+
+$("#cform").addEventListener("submit",e=>{e.preventDefault();sendMessage()});
+
+const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const prog=$("#prog");
+addEventListener("scroll",()=>{const m=document.documentElement.scrollHeight-innerHeight;prog.style.transform="scaleX("+(m>0?scrollY/m:0)+")"},{passive:true});
+const mlinks=[...document.querySelectorAll(".menu a")];
+const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)mlinks.forEach(a=>a.classList.toggle("act",a.getAttribute("href")==="#"+e.target.id))}),{rootMargin:"-45% 0px -50% 0px"});
+["services","work","process","about"].forEach(id=>spy.observe($("#"+id)));
+function confetti(x,y){
+  if(still)return;
+  const cs=["#FFD84D","#FF8FC0","#7DB4FF","#7EE2A8"];
+  for(let i=0;i<22;i++){const d=document.createElement("i");d.className="cf";d.style.left=x+"px";d.style.top=y+"px";d.style.background=cs[i%4];document.body.appendChild(d);
+    const a=Math.random()*6.28,v=80+Math.random()*140;
+    d.animate([{transform:"translate(0,0) rotate(0deg)",opacity:1},{transform:"translate("+Math.cos(a)*v+"px,"+(Math.sin(a)*v+120)+"px) rotate("+Math.round(Math.random()*720)+"deg)",opacity:0}],{duration:900+Math.random()*500,easing:"cubic-bezier(.2,.8,.4,1)"}).onfinish=()=>d.remove();}
+}
+document.querySelectorAll(".st,.badge,.btn.y").forEach(s=>s.addEventListener("click",e=>confetti(e.clientX,e.clientY)));
+$("#cform").addEventListener("submit",()=>{const r=$("#cform button").getBoundingClientRect();confetti(r.left+r.width/2,r.top)});
+const sts=[...document.querySelectorAll(".st")];
+if(!still)addEventListener("mousemove",e=>{const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;sts.forEach((s,i)=>{const k=(i+1)*8;s.style.marginLeft=x*k+"px";s.style.marginTop=y*k+"px"})},{passive:true});
+const fine=matchMedia("(hover:hover) and (pointer:fine)").matches;
+const cur=$("#cur");
+if(fine&&!still){
+  let cx=-100,cy=-100,tx=-100,ty=-100;
+  addEventListener("pointermove",e=>{tx=e.clientX;ty=e.clientY;cur.classList.add("on")},{passive:true});
+  (function f(){cx+=(tx-cx)*.16;cy+=(ty-cy)*.16;cur.style.transform="translate("+(cx-18)+"px,"+(cy-18)+"px)";requestAnimationFrame(f)})();
+  document.addEventListener("pointerover",e=>cur.classList.toggle("big",!!(e.target.closest&&e.target.closest("a,button,.st,input,textarea"))));
+  document.querySelectorAll(".btn,.logo").forEach(b=>{
+    b.addEventListener("pointermove",e=>{const r=b.getBoundingClientRect();b.style.translate=((e.clientX-r.left-r.width/2)*.18)+"px "+((e.clientY-r.top-r.height/2)*.28)+"px"});
+    b.addEventListener("pointerleave",()=>{b.style.translate=""});
+  });
+  let tc=null;
+  document.addEventListener("pointermove",e=>{
+    if(e.pointerType!=="mouse")return;
+    const c=e.target.closest&&e.target.closest(".card");
+    if(tc&&tc!==c){tc.style.transform="";tc=null}
+    if(!c)return;tc=c;
+    const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    c.style.transform="perspective(900px) rotateX("+(-y*7)+"deg) rotateY("+(x*7)+"deg)";
+  });
+  const hero=$(".hero");
+  hero.addEventListener("pointermove",e=>{const r=hero.getBoundingClientRect();hero.style.setProperty("--mx",(e.clientX-r.left)+"px");hero.style.setProperty("--my",(e.clientY-r.top)+"px")});
+}
+let dark=matchMedia("(prefers-color-scheme: dark)").matches;
+const paint=()=>document.documentElement.setAttribute("data-theme",dark?"dark":"light");
+$("#theme").onclick=()=>{dark=!dark;paint()};paint();
+
+/* ===== Database (Supabase) ===== */
+const CFG={url:"YOUR_SUPABASE_URL",key:"YOUR_SUPABASE_ANON_KEY",bucket:"work"};
+let sb=null;
+try{if(window.supabase&&/^https:\/\//.test(CFG.url))sb=supabase.createClient(CFG.url,CFG.key)}catch(e){}
+async function load(){
+  if(!sb)return;
+  try{
+    const [p,c]=await Promise.all([
+      sb.from("projects").select("*").order("created_at",{ascending:false}),
+      sb.from("settings").select("*").eq("id",1).maybeSingle()]);
+    if(!p.error)D.projects=p.data.map(r=>({id:r.id,title:r.title,desc:r.description,meta:r.meta,link:r.link||"#",img:r.img||""}));
+    if(c.data)D.contact={email:c.data.email||"",whatsapp:c.data.whatsapp||"",github:c.data.github||"",linkedin:c.data.linkedin||""};
+    render();
+  }catch(e){}
+}
+load();
+
+async function sendMessage(){
+  const n=$("#cn").value.trim(),em=$("#ce").value.trim(),m=$("#cm").value.trim(),note=$("#cnote");
+  if(sb){
+    note.textContent="Sending…";
+    const {error}=await sb.from("messages").insert({name:n,email:em,message:m});
+    if(!error){note.textContent="Thanks! Your message was sent. I’ll reply soon.";$("#cform").reset();return}
+  }
+  const to=D.contact.email;
+  if(!to){note.textContent="Sorry, the message could not be sent. Please try again later.";return}
+  location.href="mailto:"+to+"?subject="+encodeURIComponent("New project enquiry from "+n)+"&body="+encodeURIComponent("Name: "+n+"\nEmail: "+em+"\n\n"+m);
+  note.textContent="Your email app should open with the message ready to send.";
+}
+
+/* ===== Owner tools ===== */
+const msg=t=>$("#msg").textContent=t;
+function setAuth(on){
+  $("#auth").hidden=on;$("#tools").hidden=!on;$("#manage").hidden=!on;
+  if(on){adminList();fillContact();loadMsgs()}
+}
+if(sb){
+  sb.auth.getSession().then(({data})=>setAuth(!!data.session));
+  sb.auth.onAuthStateChange((_e,s)=>setAuth(!!s));
+}
+$("#olog").onclick=e=>{e.preventDefault();$("#admin").hidden=false;if(!sb)msg("Add your Supabase keys in index.html first. See README.md.")};
+$("#manage").onclick=()=>{$("#admin").hidden=false};
+$("#close").onclick=()=>$("#admin").hidden=true;
+$("#login").onclick=async()=>{
+  if(!sb){msg("Add your Supabase keys in index.html first.");return}
+  const {error}=await sb.auth.signInWithPassword({email:$("#le").value.trim(),password:$("#lp").value});
+  msg(error?"Wrong email or password.":"");$("#lp").value="";
+};
+$("#logout").onclick=async()=>{await sb.auth.signOut();$("#admin").hidden=true};
+function adminList(){
+  const l=$("#alist");l.textContent="";
+  D.projects.forEach(p=>{const r=el("div","arow");r.appendChild(el("span",0,p.title||"Untitled"));
+    const b=el("button","btn w sm","Remove");b.type="button";
+    b.onclick=async()=>{
+      if(!p.id||!confirm("Remove “"+p.title+"”?"))return;
+      const {error}=await sb.from("projects").delete().eq("id",p.id);
+      if(error){msg("Could not remove it.");return}
+      await load();adminList();msg("Removed.");
+    };
+    r.appendChild(b);l.appendChild(r)});
+}
+function fillContact(){$("#ke").value=D.contact.email||"";$("#kw").value=D.contact.whatsapp||"";$("#kg").value=D.contact.github||"";$("#kl").value=D.contact.linkedin||""}
+$("#padd").onclick=async()=>{
+  const t=$("#pt").value.trim();if(!t){msg("Add a title first.");return}
+  let img="";const f=$("#pf").files[0];
+  if(f){
+    msg("Uploading picture…");
+    const path=Date.now()+"-"+f.name.replace(/[^\w.-]/g,"_");
+    const up=await sb.storage.from(CFG.bucket).upload(path,f);
+    if(up.error){msg("The picture didn’t upload. Try a smaller file.");return}
+    img=sb.storage.from(CFG.bucket).getPublicUrl(path).data.publicUrl;
+  }
+  const {error}=await sb.from("projects").insert({title:t,description:$("#pd").value.trim(),meta:$("#pm").value.trim(),link:$("#pl").value.trim()||"#",img});
+  if(error){msg("Could not add the project.");return}
+  ["#pt","#pd","#pm","#pl","#pf"].forEach(x=>$(x).value="");
+  await load();adminList();msg("Project added.");
+};
+$("#pub").onclick=async()=>{
+  const c={email:$("#ke").value.trim(),whatsapp:$("#kw").value.trim(),github:$("#kg").value.trim(),linkedin:$("#kl").value.trim()};
+  const {error}=await sb.from("settings").upsert({id:1,...c});
+  if(error){msg("Could not save.");return}
+  D.contact=c;render();msg("Saved.");
+};
+async function loadMsgs(){
+  const l=$("#mlist");l.textContent="";
+  const {data,error}=await sb.from("messages").select("*").order("created_at",{ascending:false}).limit(30);
+  if(error||!data.length){l.appendChild(el("p",0,error?"Could not load messages.":"No messages yet."));return}
+  data.forEach(m=>{const r=el("div","arow");r.style.display="block";
+    r.append(el("b",0,m.name+" · "+m.email),el("p",0,m.message));l.appendChild(r)});
+}
+</script>
+</body>
+</html>
